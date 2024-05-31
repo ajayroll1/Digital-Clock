@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigitalClock</title>
+  <style>
+    /* Reset some default styles */
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    /* Flexbox for centering content */
+    .centre {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url('https://images.unsplash.com/photo-1604010875146-2ac2a05fa359?q=80&w=1862&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+        background-size: cover;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    /* Banner styling */
+    #banner {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Clock styling */
+    #clock {
+        font-size: 4rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        padding: 20px 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+        #banner {
+            font-size: 1.2rem;
+            padding: 8px 16px;
+            background-color: rgb(217, 14, 14);        }
+        #clock {
+            font-size: 3rem;
+            padding: 15px 30px;
+            background-color: rgb(217, 14, 14);
+        }
+    }
+
+    @media (max-width: 480px) {
+        #banner {
+            font-size: 1rem;
+            padding: 6px 12px;
+            
+        }
+        #clock {
+            font-size: 2rem;
+            padding: 10px 20px;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="centre">
+    <div id="banner"><span>your local time </span></div>
+    <div id="clock"></div>
+  </div>
+
+  <script>
+    const clock = document.getElementById('clock');
+
+    setInterval(function(){
+      const date = new Date();
+      clock.innerText = date.toLocaleTimeString();
+    }, 1000);
+  </script>
+</body>
+</html>
